@@ -20,9 +20,9 @@ a { color: inherit; text-decoration: none; font-family: inherit; }
 .canvas { position: absolute; left: 0; top: 0; width: 932px; height: 1688px; transform-origin: 0 0; will-change: transform; user-select: none; }
 .matrix-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; user-select: none; }
 
-.matrix-title { display:none; position: absolute; left: 18%; right: 3%; top: 22px; z-index: 13; text-align: center; pointer-events: none; text-shadow: 0 4px 0 rgba(0,0,0,.42), 0 0 20px rgba(230,154,33,.18); }
-.matrix-title h1 { margin: 0; font-size: 58px; line-height: 1; letter-spacing: -0.065em; color: var(--gold-3); font-weight: 950; }
-.matrix-title p { margin: 12px 0 0; font-size: 24px; line-height: 1.12; color: #fff0c5; font-weight: 900; letter-spacing: -0.045em; }
+.matrix-title { display:block; position: absolute; left: 19%; right: 4%; top: 18px; z-index: 13; text-align: center; pointer-events: none; padding: 12px 10px 13px; border-radius: 20px; background: linear-gradient(180deg, rgba(8,14,18,.64), rgba(8,14,18,.32)); border: 1px solid rgba(255,226,157,.30); box-shadow: 0 8px 26px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08); text-shadow: 0 4px 0 rgba(0,0,0,.44), 0 0 20px rgba(230,154,33,.25); }
+.matrix-title h1 { margin: 0; font-size: 54px; line-height: 1; letter-spacing: -0.07em; color: var(--gold-3); font-weight: 950; }
+.matrix-title p { margin: 9px 0 0; font-size: 24px; line-height: 1.12; color: #fff0c5; font-weight: 900; letter-spacing: -0.05em; }
 
 
 .button-set { position: absolute; left: 10.7%; width: 55%; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; z-index: 12; }
@@ -62,9 +62,9 @@ a { color: inherit; text-decoration: none; font-family: inherit; }
   .button-set { left: 10.7%; width: 55%; gap: 4px; }
   .button-set button, .button-set a.hub-button { min-height: 56px; padding: 6px 4px; border-radius: 15px; font-size: 16.5px; gap: 3px; letter-spacing: -.085em; }
   .button-set button span, .button-set a.hub-button span { width: 17px; height: 17px; font-size: 14px; }
-  .matrix-title { left: 15%; right: 2%; top: 14px; }
-  .matrix-title h1 { font-size: 42px; }
-  .matrix-title p { margin-top: 8px; font-size: 17px; }
+  .matrix-title { left: 18%; right: 3%; top: 11px; padding: 8px 8px 9px; border-radius: 15px; }
+  .matrix-title h1 { font-size: 31px; }
+  .matrix-title p { margin-top: 5px; font-size: 14px; }
   .flow-dock { left: 8px; right: 8px; height: calc(var(--flow-h) - 7px); border-radius: 16px; }
   .flow-dock strong { font-size: 19px; }
   .flow-dock span { font-size: 13px; margin-top: 5px; }
