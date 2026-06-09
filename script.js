@@ -5,6 +5,8 @@
   const dialogTitle = document.getElementById('dialogTitle');
   const dialogText = document.getElementById('dialogText');
   const closeDialog = document.getElementById('closeDialog');
+  const hubListModal = document.getElementById('hubListModal');
+  const hubListClose = document.getElementById('hubListClose');
 
   const base = { w: 932, h: 1688 };
   const state = { scale: 1, minScale: 0.35, maxScale: 3.2, x: 0, y: 0 };
@@ -93,7 +95,7 @@
   document.querySelectorAll('.footer button').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const key=btn.dataset.footer;
-      if(key==='hub'){ location.href='hubs/index.html?hub=opening'; return; }
+      if(key==='hub'){ hubListModal?.classList.add('show'); hubListModal?.setAttribute('aria-hidden','false'); return; }
       if(key==='all'){ fitView(); return; }
       if(key==='prev'){ dialogTitle.textContent='정복시대 Matrix'; dialogText.textContent='정복시대 Matrix 주소가 확정되면 이 버튼에 연결하면 됩니다.'; dialog.showModal(); return; }
       if(key==='next'){ dialogTitle.textContent='통일왕국 Matrix'; dialogText.textContent='통일왕국 Matrix 주소가 확정되면 이 버튼에 연결하면 됩니다.'; dialog.showModal(); return; }
@@ -101,6 +103,18 @@
     });
   });
   closeDialog.addEventListener('click', ()=>dialog.close());
+
+  hubListClose?.addEventListener('click', ()=>{
+    hubListModal.classList.remove('show');
+    hubListModal.setAttribute('aria-hidden','true');
+  });
+  hubListModal?.addEventListener('click', (e)=>{
+    if(e.target === hubListModal){
+      hubListModal.classList.remove('show');
+      hubListModal.setAttribute('aria-hidden','true');
+    }
+  });
+
   window.addEventListener('resize', fitView); window.addEventListener('load', fitView);
   if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{})); }
 })();

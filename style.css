@@ -71,3 +71,86 @@ a { color: inherit; text-decoration: none; font-family: inherit; }
   .footer button span { font-size: 22px; }
   .footer button b { font-size: 12px; }
 }
+
+
+/* Hub list modal from footer */
+.hub-list-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(0,0,0,.62);
+  backdrop-filter: blur(4px);
+}
+.hub-list-modal.show{ display:flex; }
+.hub-list-panel{
+  width: min(720px, 94vw);
+  max-height: min(760px, 82vh);
+  overflow: auto;
+  border-radius: 28px;
+  border: 1px solid rgba(255,220,145,.46);
+  background: linear-gradient(180deg, rgba(14,19,21,.96), rgba(5,8,10,.98));
+  box-shadow: 0 28px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08);
+  padding: 26px 22px 24px;
+  color: #fff4cf;
+}
+.hub-list-panel h2{
+  margin: 0 44px 20px 0;
+  font-size: clamp(26px, 5.6vw, 42px);
+  letter-spacing: -0.055em;
+  color: var(--gold-3);
+}
+.hub-list-close{
+  position: absolute;
+  transform: translate(calc(min(720px, 94vw) - 74px), -8px);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,220,145,.5);
+  background: rgba(255,255,255,.08);
+  color: #fff4cf;
+  font-size: 30px;
+  font-weight: 900;
+}
+.hub-list-grid{
+  display: grid;
+  gap: 12px;
+}
+.hub-list-grid a{
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  align-items: center;
+  text-decoration: none;
+  color: #fff4cf;
+  border: 1px solid rgba(255,220,145,.35);
+  border-radius: 18px;
+  padding: 14px 15px;
+  background: linear-gradient(90deg, rgba(200,119,0,.22), rgba(255,255,255,.055));
+}
+.hub-list-grid a span{
+  grid-row: 1 / 3;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(215,139,18,.20);
+  border: 1px solid rgba(255,220,145,.35);
+  font-size: 24px;
+}
+.hub-list-grid a b{
+  font-size: clamp(19px, 4.6vw, 28px);
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+}
+.hub-list-grid a small{
+  margin-top: 5px;
+  font-size: clamp(13px, 3.2vw, 17px);
+  color: rgba(255,244,207,.78);
+  line-height: 1.25;
+}
