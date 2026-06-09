@@ -1,0 +1,73 @@
+:root {
+  --bg: #061017;
+  --panel: rgba(10, 16, 20, 0.88);
+  --gold: #c98917;
+  --gold-2: #f4c46b;
+  --gold-3: #ffe7aa;
+  --line: rgba(245, 201, 108, 0.55);
+  --footer-h: 82px;
+  --flow-h: 82px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: #fff4cf; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button { font-family: inherit; }
+a { color: inherit; text-decoration: none; font-family: inherit; }
+#app { width: 100vw; height: 100dvh; overflow: hidden; position: relative; background: radial-gradient(circle at top, #13202a 0, #06090c 68%); }
+
+.viewport { position: fixed; top: 0; left: 0; right: 0; bottom: calc(var(--footer-h) + var(--flow-h)); overflow: hidden; touch-action: none; cursor: grab; background: #05090c; }
+.viewport.dragging { cursor: grabbing; }
+.canvas { position: absolute; left: 0; top: 0; width: 932px; height: 1688px; transform-origin: 0 0; will-change: transform; user-select: none; }
+.matrix-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; user-select: none; }
+
+.matrix-title { display:none; position: absolute; left: 18%; right: 3%; top: 22px; z-index: 13; text-align: center; pointer-events: none; text-shadow: 0 4px 0 rgba(0,0,0,.42), 0 0 20px rgba(230,154,33,.18); }
+.matrix-title h1 { margin: 0; font-size: 58px; line-height: 1; letter-spacing: -0.065em; color: var(--gold-3); font-weight: 950; }
+.matrix-title p { margin: 12px 0 0; font-size: 24px; line-height: 1.12; color: #fff0c5; font-weight: 900; letter-spacing: -0.045em; }
+
+
+.button-set { position: absolute; left: 11.2%; width: 49%; display: grid; grid-template-columns: .92fr .9fr .9fr; gap: 4px; z-index: 12; }
+.button-set button, .button-set a.hub-button { min-height: 58px; padding: 5px 6px; border: 1.5px solid rgba(255,226,157,.78); border-radius: 18px; background: linear-gradient(180deg, rgba(211,137,14,.96) 0%, rgba(135,76,8,.96) 48%, rgba(29,23,17,.94) 100%); box-shadow: 0 8px 18px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.18), inset 0 -10px 18px rgba(0,0,0,.18); color: #fff3c4; font-size: 18px; font-weight: 950; letter-spacing: -.075em; text-shadow: 0 2px 3px rgba(0,0,0,.75); white-space: nowrap; display: flex; align-items: center; justify-content: center; gap: 7px; }
+.button-set button span, .button-set a.hub-button span { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 24px; height: 24px; font-size: 19px; filter: drop-shadow(0 1px 1px #000); }
+.button-set button b, .button-set a.hub-button b { overflow: hidden; text-overflow: ellipsis; }
+.button-set button[data-kind="link"], .button-set button[data-kind="integrated"] { background: linear-gradient(180deg, rgba(60,52,43,.96), rgba(27,24,20,.96)); }
+.button-set button:active, .button-set a.hub-button:active { transform: translateY(1px); filter: brightness(1.12); }
+.row-1 { top: 16.9%; }
+.row-2 { top: 36.8%; }
+.row-3 { top: 56.7%; }
+.row-4 { top: 76.6%; }
+.row-5 { top: 94.2%; }
+
+.flow-dock { position: fixed; left: 10px; right: 10px; bottom: var(--footer-h); height: calc(var(--flow-h) - 8px); border: 1.5px solid rgba(255,226,157,.55); border-radius: 20px; background: rgba(6,12,16,.94); box-shadow: 0 -4px 22px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 54; text-align: center; }
+.flow-dock strong { font-size: 24px; color: #ffe6a4; letter-spacing: -.06em; }
+.flow-dock span { margin-top: 7px; font-size: 17px; color: #fff5d6; font-weight: 850; letter-spacing: -.04em; }
+
+.footer { position: fixed; left: 0; right: 0; bottom: 0; height: var(--footer-h); z-index: 55; display: grid; grid-template-columns: .9fr .95fr .95fr .95fr 1.22fr; gap: 0; padding: 7px 10px calc(7px + env(safe-area-inset-bottom)); background: linear-gradient(180deg, rgba(9,15,19,.86), rgba(4,8,10,.98)); border-top: 1px solid rgba(255,226,157,.34); box-shadow: 0 -8px 24px rgba(0,0,0,.45); }
+.footer button { border: 1px solid rgba(255,226,157,.28); border-right: 0; background: linear-gradient(180deg, rgba(13,22,28,.96), rgba(7,12,16,.98)); color: #eee3cf; font-weight: 900; font-size: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-width: 0; }
+.footer button:first-child { border-radius: 18px 0 0 18px; }
+.footer button:last-child { border-right: 1px solid rgba(255,226,157,.28); border-radius: 0 22px 22px 0; }
+.footer button span { font-size: 27px; line-height: .85; color: #e9e2d1; }
+.footer button b { font-size: 14px; letter-spacing: -.06em; }
+.footer button.next { background: linear-gradient(180deg, rgba(202,128,11,.98), rgba(134,75,5,.98)); color: #fff0c7; }
+
+.dialog { width: min(88vw, 420px); border: 0; padding: 0; border-radius: 18px; background: transparent; color: #fff4cf; }
+.dialog::backdrop { background: rgba(0,0,0,.58); backdrop-filter: blur(2px); }
+.dialog-card { border: 1px solid rgba(255,222,148,.58); border-radius: 18px; background: linear-gradient(180deg, rgba(37,24,10,.98), rgba(13,8,4,.98)); box-shadow: 0 18px 50px rgba(0,0,0,.55); padding: 18px; }
+.dialog-card h2 { margin: 0 0 10px; color: var(--gold-3); font-size: 20px; }
+.dialog-card p { margin: 0; line-height: 1.55; font-size: 14px; color: rgba(255,244,207,.86); }
+.dialog-actions { display: flex; justify-content: flex-end; margin-top: 16px; }
+.dialog-actions button { min-width: 88px; height: 38px; border-radius: 12px; border: 1px solid var(--line); background: rgba(52,35,16,.96); color: var(--gold-3); font-weight: 800; }
+
+@media (max-width: 430px) {
+  :root { --footer-h: 78px; --flow-h: 72px; }
+  .button-set { left: 11.2%; width: 49%; gap: 3px; }
+  .button-set button, .button-set a.hub-button { min-height: 44px; padding: 5px 3px; border-radius: 12px; font-size: 12.5px; gap: 3px; letter-spacing: -.09em; }
+  .button-set button span, .button-set a.hub-button span { width: 18px; height: 18px; font-size: 15px; }
+  .matrix-title { left: 15%; right: 2%; top: 14px; }
+  .matrix-title h1 { font-size: 42px; }
+  .matrix-title p { margin-top: 8px; font-size: 17px; }
+  .flow-dock { left: 8px; right: 8px; height: calc(var(--flow-h) - 7px); border-radius: 16px; }
+  .flow-dock strong { font-size: 19px; }
+  .flow-dock span { font-size: 13px; margin-top: 5px; }
+  .footer button span { font-size: 22px; }
+  .footer button b { font-size: 12px; }
+}
